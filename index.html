@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Video Game</title>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <style>
+            body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-align: center;
+    background: midnightblue;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 20vh;
+    text-shadow: 2px 2px 8px #000;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#usernameInput {
+    position:absolute; 
+    top: 40%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 20px; 
+    padding: 10px;
+}
+
+        </style>
+    </head>
+    <body>
+        <h1>Video Game</h1>
+        <input type="text" id="usernameInput" placeholder="Enter your username"">
+        <br/>
+        <button id="play">Begin</button>
+        <script>
+            const begin = document.getElementById("play");
+
+            begin.addEventListener("click", () => {
+                const username = document.getElementById("usernameInput").value || "Lucia";
+                localStorage.setItem("username", username);
+                window.location.href = "game.html"; 
+            });
+        </script>
+    </body>
+</html>
