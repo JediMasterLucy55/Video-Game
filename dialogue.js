@@ -37,20 +37,20 @@ window.addEventListener("gamepadconnected", () => {
 
 const scenes = {
     intro: [
-        {name: "Elijah", text: `Welcome, ${username}. I am Elijah.`},
-        {name: username, text: "What is this place? And how do you know who I am??"},
-        {name: "Elijah", text: "This is my domain, the Star Mapper Kingdom, and I am the one who sent you here."},
-        {name: username, text: "And? How do I get back home?"},
-        {name: "Elijah", text: "I can send you back, but I have a mission only you can complete."},
-        {name: username, text: "Go on."},
-        {name: "Elijah", text: "Astra the Witch, one of our most powerful sorcerrors was kidnapped by the Shadow Watchers"},
-        {name: "Elijah", text: "I need you to travel through the multiverse to save her."},
-        {name: username, text: "What's in it for me?"},
-        {name: "Elijah", text: "Power."},
-        {name: "Elijah", text: "Whenever you go to a new dimension, you will gain a power to reflect where you are."},
-        {name: username, text: "That seems fair, I might as well."},
-        {name: username, text: "It's not like there's anything better to do back home."},
-        {name: "Elijah", text: "Perfect. Here is the first portal."},
+        {name: "Elijah", text: `Welcome, ${username}. I am Elijah.`, bg: "elijahSmileOne.PNG"},
+        {name: username, text: "What is this place? And how do you know who I am??", bg: "lucyAsk.PNG"},
+        {name: "Elijah", text: "This is my domain, the Star Mapper Kingdom, and I am the one who sent you here.", bg: "elijahSmileTwo.PNG"},
+        {name: username, text: "And? How do I get back home?", bg: "lucyAsk.PNG"},
+        {name: "Elijah", text: "I can send you back, but I have a mission only you can complete.", bg: "elijahSmileOne.PNG"},
+        {name: username, text: "Go on.", bg: "lucySmile.PNG"},
+        {name: "Elijah", text: "Astra the Witch, one of our most powerful sorcerrors was kidnapped by the Shadow Watchers.", bg: "elijahSmileTwo.PNG"},
+        {name: "Elijah", text: "I need you to travel through the multiverse to save her.", bg: "elijahSmileOne.PNG"},
+        {name: username, text: "What's in it for me?", bg: "lucyAsk.PNG"},
+        {name: "Elijah", text: "Power.", bg: "elijahSmileOne.PNG"},
+        {name: "Elijah", text: "Whenever you go to a new dimension, you will gain a power to reflect where you are.", bg: "elijahSmileTwo.PNG"},
+        {name: username, text: "That seems fair, I might as well.", bg: "lucySmile.PNG"},
+        {name: username, text: "It's not like there's anything better to do back home.", bg: "lucyAsk.PNG"},
+        {name: "Elijah", text: "Perfect. Here is the first portal.", bg: "elijahSmileOne"},
     ]
 }
 
@@ -89,18 +89,27 @@ function typeWriter(text, speed = 30) {
 // === SHOW NEXT LINE ===
 // Triggered when the player clicks "Next"
 function showNextLine() {
-  if (isTyping) return; // Wait until typing is finished
+  if (isTyping) return; // Don't allow skipping during typewriter effect
 
   if (dialogueIndex < currentScene.length) {
-    const line = currentScene[dialogueIndex]; // Get current line
-    nameBox.textContent = line.name;          // Set name box
-    typeWriter(line.text);                    // Start typing dialogue
-    dialogueIndex++;                          // Move to next line for next click
+    const line = currentScene[dialogueIndex];
+
+    // Set character name and start typewriter
+    nameBox.textContent = line.name;
+    typeWriter(line.text);
+
+    // === SET BACKGROUND IMAGE ===
+    const bgImage = line.bg || ""; // fallback in case no bg
+    if (bgImage) {
+      document.getElementById("game-body").style.backgroundImage = `url(images/${bgImage})`;
+    }
+
+    dialogueIndex++;
   } else {
-    // Dialogue finished — go to the next scene (like a battle)
-    window.location.href = "fight.html";
+    window.location.href = "fight.html"; // Scene complete
   }
 }
+
 
 // === START FIRST LINE ===
 showNextLine(); // Show the first line when the page loads\
