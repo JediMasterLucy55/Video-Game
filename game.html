@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style rel="stylesheet" href="styles.css"></style>
+    </head>
+    <style>
+        #dialogue-box {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    font-family: sans-serif;
+    z-index: 10;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#dialogue-box h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+#dialogue-box p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+#nextBtn {
+    margin-top: 15px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#nextBtn:hover {
+    background-color: #555;
+}
+
+    </style>
+    <body>
+        <div id="dialogue-box">
+            <h2 id="name"></h2>
+            <p id="text"></p>
+            <button id="nextBtn">Next</button>
+        </div>
+        <script src="dialogue.js"></script>
+    </body>
+</html>
