@@ -50,7 +50,7 @@ const scenes = {
         {name: "Elijah", text: "Whenever you go to a new dimension, you will gain a power to reflect where you are.", bg: "elijahSmileTwo.PNG"},
         {name: username, text: "That seems fair, I might as well.", bg: "lucySmile.PNG"},
         {name: username, text: "It's not like there's anything better to do back home.", bg: "lucyAsk.PNG"},
-        {name: "Elijah", text: "Perfect. Here is the first portal.", bg: "elijahSmileOne"},
+        {name: "Elijah", text: "Perfect. Here is the first portal.", bg: "elijahSmileOne.PNG"},
     ]
 }
 
@@ -89,27 +89,18 @@ function typeWriter(text, speed = 30) {
 // === SHOW NEXT LINE ===
 // Triggered when the player clicks "Next"
 function showNextLine() {
-  if (isTyping) return; // Don't allow skipping during typewriter effect
+  if (isTyping) return; // Wait until typing is finished
 
   if (dialogueIndex < currentScene.length) {
-    const line = currentScene[dialogueIndex];
-
-    // Set character name and start typewriter
-    nameBox.textContent = line.name;
-    typeWriter(line.text);
-
-    // === SET BACKGROUND IMAGE ===
-    const bgImage = line.bg || ""; // fallback in case no bg
-    if (bgImage) {
-      document.getElementById("game-body").style.backgroundImage = `url(images/${bgImage})`;
-    }
-
-    dialogueIndex++;
+    const line = currentScene[dialogueIndex]; // Get current line
+    nameBox.textContent = line.name;          // Set name box
+    typeWriter(line.text);                    // Start typing dialogue
+    dialogueIndex++;                          // Move to next line for next click
   } else {
-    window.location.href = "fight.html"; // Scene complete
+    // Dialogue finished — go to the next scene (like a battle)
+    window.location.href = "fight.html";
   }
 }
-
 
 // === START FIRST LINE ===
 showNextLine(); // Show the first line when the page loads\
