@@ -1,40 +1,5 @@
 const username = localStorage.getItem("username") || "Lucia";
 
-this.input.gamepad.once('connected', (pad) => {
-    this.pad = pad;
-});
-
-// This function will be called repeatedly to check controller state
-function pollGamepad() {
-    const gamepads = navigator.getGamepads();
-    const gp = gamepads[0];
-
-    if (gp) {
-        // Button index 0 is usually the "X" button on DualSense
-        if (gp.buttons[0].pressed && !xPressedLastFrame) {
-            console.log("X - Next");
-
-            // Simulate click on #nextBtn
-            document.getElementById("nextBtn").click();
-        }
-
-        // Update last frame button state
-        xPressedLastFrame = gp.buttons[0].pressed;
-    }
-
-    requestAnimationFrame(pollGamepad);
-}
-
-// To prevent holding the button down from triggering multiple times
-let xPressedLastFrame = false;
-
-// Start polling when a controller connects
-window.addEventListener("gamepadconnected", () => {
-    console.log("Gamepad connected!");
-    pollGamepad();
-});
-
-
 const scenes = {
     intro: [
         {name: "Elijah", text: `Welcome, ${username}. I am Elijah.`, bg: "elijahSmileOne.PNG"},
