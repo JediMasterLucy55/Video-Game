@@ -1,14 +1,15 @@
-let lucy;
-let venti;
-let jean;
-let neuvi;
+let playableCharacters;
+let playableCharactersImgs;
 
 function setup() {
-    lucy = new Sprite();
-    
-    venti = new Sprite();
-    jean = new Sprite();
-    neuvi = new Sprite();
+    canvas(600, 600);
+    background('black');
+
+    playableCharacters.resize(60, 0)
+
+    playableCharacters = new Group();
+
+
 }
 
 function rules() {
