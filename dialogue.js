@@ -1,4 +1,5 @@
 const username = localStorage.getItem("username") || "Lucia";
+const unlockedCharacters = JSON.parse(localStorage.getItem("unlockedCharacters")) || [];
 
 const scenes = {
     intro: [
@@ -16,7 +17,10 @@ const scenes = {
         {name: username, text: "That seems fair, I might as well.", bg: "lucySmile.PNG"},
         {name: username, text: "It's not like there's anything better to do back home.", bg: "lucyAsk.PNG"},
         {name: "Elijah", text: "Perfect. Here is the first portal.", bg: "elijahSmileOne.PNG"},
-    ]
+    ],
+    meetVenti: [
+
+    ],
 }
 
 // === DOM ELEMENTS ===
@@ -70,7 +74,7 @@ function showNextLine() {
     dialogueIndex++;                          // Move to next line for next click
   } else {
     // Dialogue finished — go to the next scene (like a battle)
-    window.location.href = "fight.html";
+    window.location.href = "setup.html";
   }
 }
 

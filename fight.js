@@ -200,3 +200,8 @@ function enemyAttack() {
         character.hp -= 20; // Deal damage to each character
     });
 }
+
+function draw() {
+    background('grey');
+    
+}
