@@ -1,5 +1,4 @@
 const username = localStorage.getItem("username") || "Lucia";
-const unlockedCharacters = JSON.parse(localStorage.getItem("unlockedCharacters")) || [];
 
 const scenes = {
     intro: [
@@ -21,6 +20,57 @@ const scenes = {
     meetVenti: [
 
     ],
+    meetJean: [
+
+    ],
+    meetNeuvi: [
+
+    ],
+    beforeBossOne: [
+
+    ],
+    meetLinh: [
+
+    ], 
+    meetMarella: [
+
+    ],
+    meetKeefe: [
+
+    ],
+    beforeBossTwo: [
+
+    ],
+    meetRex: [
+
+    ],
+    meetFives: [
+
+    ],
+    meetSparrow: [
+
+    ],
+    beforeBossThree: [
+
+    ],
+    meetKaladin: [
+
+    ],
+    meetShallan: [
+
+    ],
+    meetDalinar: [
+
+    ],
+    beforeBossFour: [
+
+    ],
+    beforeFinalBoss: [
+
+    ],
+    postBoss: [
+
+    ]
 }
 
 // === DOM ELEMENTS ===
@@ -74,7 +124,7 @@ function showNextLine() {
     dialogueIndex++;                          // Move to next line for next click
   } else {
     // Dialogue finished — go to the next scene (like a battle)
-    window.location.href = "setup.html";
+    window.location.href = "fight.html";
   }
 }
 

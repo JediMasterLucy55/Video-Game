@@ -12,7 +12,7 @@ function preload() {
 }
 
 function setup() {
-    canvas(600, 600);
+    canvas(windowWidth, windowHeight);
     background('black');
 
     enemy = new Sprite();
@@ -203,5 +203,5 @@ function enemyAttack() {
 
 function draw() {
     background('grey');
-    
+
 }
