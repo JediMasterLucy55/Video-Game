@@ -60,6 +60,13 @@ function showNextLine() {
     const line = currentScene[dialogueIndex]; // Get current line
     nameBox.textContent = line.name;          // Set name box
     typeWriter(line.text);                    // Start typing dialogue
+
+    // Set background if the line has one
+    if (line.bg) {
+      const gameBody = document.getElementById("game-body");
+      gameBody.style.backgroundImage = `url('images/${line.bg}')`;
+    }
+
     dialogueIndex++;                          // Move to next line for next click
   } else {
     // Dialogue finished — go to the next scene (like a battle)
