@@ -1,4 +1,5 @@
 const username = localStorage.getItem("username") || "Lucia";
+let lastScene;
 
 const scenes = {
     intro: [
@@ -80,7 +81,7 @@ const textBox = document.getElementById("text");     // Where the dialogue is ty
 const nextBtn = document.getElementById("nextBtn");  // The button to go to the next line
 
 // === STATE VARIABLES ===
-const currentScene = scenes.intro;   // You can change this to another scene later
+let currentScene = scenes.intro;   // You can change this to another scene later
 let dialogueIndex = 0;               // Keeps track of which line we're on
 let charIndex = 0;                   // Tracks how many characters have been typed
 let isTyping = false;                // Prevents skipping during typewriter effect
@@ -124,6 +125,8 @@ function showNextLine() {
     dialogueIndex++;                          // Move to next line for next click
   } else {
     // Dialogue finished — go to the next scene (like a battle)
+    lastScene = currentScene;
+    localStorage.setItem(lastScene);
     window.location.href = "fight.html";
   }
 }

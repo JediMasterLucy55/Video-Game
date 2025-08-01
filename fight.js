@@ -149,6 +149,11 @@ function setup() {
     shallan.skill = dpsSkill();
     shallan.ultimate = dpsUlt();
     playableCharacters.add(shallan);
+
+    if (lastScene == intro) {
+        currentScene = scenes.meetVenti;
+        genshinLucy.pos = {x: width/2 - 300, y: height/2 + 400};
+    }
 }
 
 function dpsNormal() {
