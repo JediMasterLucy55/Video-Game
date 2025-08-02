@@ -22,7 +22,7 @@ function setup() {
 
     let playableCharacters = new Group();
 
-    let genshinLucy = createSprite(100, 100);
+    let genshinLucy = createSprite(100, 100, 15, 15);
     genshinLucy.type = "dps";
     genshinLucy.hp = 150;
     genshinLucy.normalAttack = dpsNormal();
@@ -208,5 +208,5 @@ function enemyAttack() {
 
 function draw() {
     background('grey');
-
+    
 }
