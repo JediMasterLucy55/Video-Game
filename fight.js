@@ -6,6 +6,9 @@ let skill;
 let ultimate;
 let enemy;
 let boss;
+let normalAttackButton;
+let skillButton;
+let ultimateButton;
 
 function preload() {
 
@@ -19,6 +22,12 @@ function setup() {
     enemy.type = "enemy";
     enemy.hp = 275;
     enemy.normalAttack = enemyAttack();
+
+    let buttons = new Group();
+    normalAttackButton = document.getElementById("normalAttackButton");
+    skillButton = document.getElementById("skill");
+    ultimateButton = document.getElementById("ultimate");
+    buttons.add(normalAttackButton, skillButton, ultimateButton);
 
     let playableCharacters = new Group();
 
