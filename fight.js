@@ -10,12 +10,14 @@ let normalAttackButton;
 let skillButton;
 let ultimateButton;
 
+let buttonMenu;
+
 function preload() {
 
 }
 
 function setup() {
-    canvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight);
     background('black');
 
     enemy = new Sprite();
@@ -38,6 +40,13 @@ function setup() {
     mc.skill = dpsSkill();
     mc.ultimate = dpsUlt();
     playableCharacters.add(mc);
+
+    const a = windowHeight * 0.25;
+
+    buttonMenu = new Sprite();
+    buttonMenu.height = a;
+    buttonMenu.width = windowWidth;
+    buttonMenu.color = black;
 }
 
 function dpsNormal() {
@@ -86,11 +95,18 @@ function tankUlt() {
 
 function enemyAttack() {
     playableCharacters.forEach(character => {
-        character.hp -= 20; // Deal damage to each character
+        character.hp -= 20; // Deal damage to each character, work on this
     });
 }
 
 function draw() {
-    background('white');
+    background('pink');
     
+    normalAttackButton.x;
+    normalAttackButton.y;
+    skillButton.x = windowWidth / 2;
+    skillButton.y = buttonMenu / 2
+    ultimateButton.x;
+    ultimateButton.y;
+
 }

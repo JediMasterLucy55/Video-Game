@@ -3,7 +3,6 @@ let lastScene;
 
 const scenes = {
     intro: [
-        {name: "", text: "", bg: ""},
         {name: "", text: "", bg: ""}
     ]
 }
